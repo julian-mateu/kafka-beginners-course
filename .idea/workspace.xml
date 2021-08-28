@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="Add DotEnvIntegrationTest">
-      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/resources/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/HoseBirdIntegrationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/test/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/HelloWorld.java" afterDir="false" />
+    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="Add HoseBirdIntegrationTests and fix Log4J configuration">
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/HoseBirdIntegrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/HoseBirdIntegrationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +96,7 @@
       <recent name="com.github.julian_mateu.kafka.ElasticSearchIntegrationTest" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HelloWorld">
+  <component name="RunManager" selected="Gradle.HoseBirdIntegrationTests.readMessages">
     <configuration name="HelloWorld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.HelloWorld" />
       <module name="twitter2elastic.main" />
@@ -238,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630179571583</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add HoseBirdIntegrationTests and fix Log4J configuration">
+      <created>1630186818976</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1630186818976</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,7 +258,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add ElasticSearchIntegrationTest" />
     <MESSAGE value="Add DotEnvIntegrationTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add DotEnvIntegrationTest" />
+    <MESSAGE value="Add HoseBirdIntegrationTests and fix Log4J configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add HoseBirdIntegrationTests and fix Log4J configuration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,6 +1,7 @@
 package com.github.julian_mateu.kafka;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.twitter.hbc.ClientBuilder;
 import com.twitter.hbc.core.Constants;
@@ -34,7 +35,8 @@ public class HoseBirdIntegrationTests {
     private BasicClient client;
 
     private static Map<String, Object> getPayloadAsMap(String message) throws JsonProcessingException {
-        return OBJECT_MAPPER.readValue(message, Map.class);
+        return OBJECT_MAPPER.readValue(message, new TypeReference<Map<String, Object>>() {
+        });
     }
 
     @BeforeEach
@@ -68,6 +70,7 @@ public class HoseBirdIntegrationTests {
         LOGGER.debug("The client read {} messages!\n", client.getStatsTracker().getNumMessages());
     }
 
+    @SuppressWarnings("unchecked")
     private void assertMessageContainsTimestamp(String message) throws JsonProcessingException {
         Map<String, Object> payload = getPayloadAsMap(message);
         if (!payload.containsKey("timestamp_ms")) {
