@@ -11,7 +11,6 @@ import com.twitter.hbc.httpclient.BasicClient;
 import com.twitter.hbc.httpclient.auth.Authentication;
 import com.twitter.hbc.httpclient.auth.OAuth1;
 import io.github.cdimascio.dotenv.Dotenv;
-import lombok.Value;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,12 +18,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+/**
+ * Integration tests to run against the real Twitter API, and learning tests for the Hosebird Client library.
+ *
+ * @see <a href="https://github.com/twitter/hbc">Hosebird Client</a>
+ */
 public class HoseBirdIntegrationTests {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HoseBirdIntegrationTests.class);
@@ -50,36 +56,61 @@ public class HoseBirdIntegrationTests {
         client.stop();
     }
 
-    @Test
-    public void readMessages() throws InterruptedException, JsonProcessingException {
-        for (int messagesRead = 0; messagesRead < 10; messagesRead++) {
-            if (client.isDone()) {
-                fail("Client connection closed unexpectedly: " + client.getExitEvent().getMessage());
-                break;
-            }
+    private Optional<String> readMessage() throws InterruptedException {
+        if (client.isDone()) {
+            fail("Client connection closed unexpectedly: " + client.getExitEvent().getMessage());
+        }
 
-            String message = queue.poll(5, TimeUnit.SECONDS);
-            if (message == null) {
-                LOGGER.debug("Did not receive a message in 5 seconds");
-            } else {
-                LOGGER.debug(message);
-                assertMessageContainsTimestamp(message);
+        String message = queue.poll(5, TimeUnit.SECONDS);
+        if (message == null) {
+            LOGGER.debug("Did not receive a message in 5 seconds");
+            return Optional.empty();
+        } else {
+            LOGGER.debug(message);
+            return Optional.of(message);
+        }
+    }
+
+    @Test
+    public void readMessages() throws InterruptedException {
+        // Given
+
+        // When
+        int actualMessages = 0;
+        for (int messagesRead = 0; messagesRead < 10; messagesRead++) {
+            Optional<String> message = readMessage();
+            if (message.isPresent()) {
+                assertMessageContainsTimestamp(message.get());
+                actualMessages++;
             }
         }
 
-        LOGGER.debug("The client read {} messages!\n", client.getStatsTracker().getNumMessages());
+        // Then
+        long readMessages = client.getStatsTracker().getNumMessages();
+        LOGGER.debug("The client read {} messages!\n", readMessages);
+
+        assertNotEquals(0, readMessages);
+        assertNotEquals(0, actualMessages);
+    }
+
+    private void assertMessageContainsTimestamp(String message) {
+        try {
+            assertMessageContainsTimestampChecked(message);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
     }
 
     @SuppressWarnings("unchecked")
-    private void assertMessageContainsTimestamp(String message) throws JsonProcessingException {
+    private void assertMessageContainsTimestampChecked(String message) throws JsonProcessingException {
         Map<String, Object> payload = getPayloadAsMap(message);
         if (!payload.containsKey("timestamp_ms")) {
             if (payload.containsKey("delete")) {
                 if (!((Map<String, Object>) payload.get("delete")).containsKey("timestamp_ms")) {
-                    fail("Payload \"delete\" does not contain a timestamp_field: " + payload.get("delete"));
+                    fail("Payload \"delete\" does not contain a timestamp_ms field: " + payload.get("delete"));
                 }
             } else {
-                fail("Payload does not contain a timestamp_field: " + message);
+                fail("Payload does not contain a timestamp_ms field: " + message);
             }
         }
     }
@@ -113,19 +144,6 @@ public class HoseBirdIntegrationTests {
                 .configure()
                 .load();
 
-        String consumerKey = dotenv.get("API_KEY");
-        String consumerSecret = dotenv.get("API_SECRET");
-        String token = dotenv.get("ACCESS_TOKEN");
-        String secret = dotenv.get("ACCESS_TOKEN_SECRET");
-
-        secrets = Secrets.of(consumerKey, consumerSecret, token, secret);
-    }
-
-    @Value(staticConstructor = "of")
-    private static class Secrets {
-        String consumerKey;
-        String consumerSecret;
-        String token;
-        String secret;
+        secrets = new SecretsLoader(dotenv).loadSecrets();
     }
 }

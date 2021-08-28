@@ -4,8 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="Add HoseBirdIntegrationTests and fix Log4J configuration">
+    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="Remove warnings">
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/Secrets.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/SecretsLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/TwitterReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/TwitterReaderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/resources/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/ElasticSearchIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/ElasticSearchIntegrationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/HoseBirdIntegrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/HoseBirdIntegrationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/resources/log4j.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +81,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
   <component name="ProjectId" id="1xMBKs5oKGH3xaL0JonNKoxeEIY" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -81,8 +96,8 @@
     <property name="com.google.cloudcode.ide_session_index" value="20210828_0001" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.39413384" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -95,8 +110,11 @@
     <key name="IntroduceConstantDialog.RECENTS_KEY">
       <recent name="com.github.julian_mateu.kafka.ElasticSearchIntegrationTest" />
     </key>
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="com.github.julian_mateu.kafka" />
+    </key>
   </component>
-  <component name="RunManager" selected="Gradle.HoseBirdIntegrationTests.readMessages">
+  <component name="RunManager" selected="Application.HelloWorld">
     <configuration name="HelloWorld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.HelloWorld" />
       <module name="twitter2elastic.main" />
@@ -109,40 +127,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="HoseBirdIntegrationTests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.HoseBirdIntegrationTests" />
-      <module name="twitter2elastic.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.julian_mateu.kafka.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HoseBirdIntegrationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.HoseBirdIntegrationTests&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
     </configuration>
     <configuration name="HoseBirdIntegrationTests.readMessages" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -165,41 +149,83 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="twitter2elastic [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TwitterReaderTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.TwitterReaderTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="clean" />
+            <option value=":test" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TwitterReaderTest.test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.TwitterReaderTest.test&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TwitterReaderTest.throwsIfClientIsDone" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.TwitterReaderTest.throwsIfClientIsDone&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.HoseBirdIntegrationTests" />
       <item itemvalue="Gradle.HoseBirdIntegrationTests.readMessages" />
-      <item itemvalue="Gradle.HoseBirdIntegrationTests" />
+      <item itemvalue="Gradle.TwitterReaderTest.test" />
+      <item itemvalue="Gradle.TwitterReaderTest.throwsIfClientIsDone" />
+      <item itemvalue="Gradle.TwitterReaderTest" />
       <item itemvalue="Application.HelloWorld" />
-      <item itemvalue="Gradle.twitter2elastic [clean]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.HoseBirdIntegrationTests.readMessages" />
-        <item itemvalue="Gradle.twitter2elastic [clean]" />
-        <item itemvalue="Gradle.HoseBirdIntegrationTests" />
         <item itemvalue="Application.HelloWorld" />
-        <item itemvalue="Application.HoseBirdIntegrationTests" />
+        <item itemvalue="Gradle.TwitterReaderTest" />
+        <item itemvalue="Gradle.TwitterReaderTest.throwsIfClientIsDone" />
+        <item itemvalue="Gradle.TwitterReaderTest.test" />
+        <item itemvalue="Gradle.HoseBirdIntegrationTests.readMessages" />
       </list>
     </recent_temporary>
   </component>
@@ -240,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630186818976</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Remove warnings">
+      <created>1630187413335</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1630187413335</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -259,7 +292,8 @@
     <MESSAGE value="Add ElasticSearchIntegrationTest" />
     <MESSAGE value="Add DotEnvIntegrationTest" />
     <MESSAGE value="Add HoseBirdIntegrationTests and fix Log4J configuration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add HoseBirdIntegrationTests and fix Log4J configuration" />
+    <MESSAGE value="Remove warnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove warnings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

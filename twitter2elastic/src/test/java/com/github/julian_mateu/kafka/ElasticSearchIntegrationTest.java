@@ -64,9 +64,9 @@ public class ElasticSearchIntegrationTest {
 
     private static void createIntegrationTestIndex(@NonNull RestHighLevelClient client) throws IOException {
         AcknowledgedResponse createIndexResponse = client.indices().create(
-                        new CreateIndexRequest(INTEGRATION_TEST_INDEX),
-                        RequestOptions.DEFAULT
-                );
+                new CreateIndexRequest(INTEGRATION_TEST_INDEX),
+                RequestOptions.DEFAULT
+        );
         assertTrue(createIndexResponse.isAcknowledged());
     }
 
