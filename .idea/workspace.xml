@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="Add ElasticSearchIntegrationTest">
-      <change afterPath="$PROJECT_DIR$/example.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/DotEnvIntegrationTest.java" afterDir="false" />
+    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="Add DotEnvIntegrationTest">
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/resources/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/HoseBirdIntegrationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/test/resources/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/HelloWorld.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +33,23 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="twitter2elastic" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="twitter2elastic" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="twitter2elastic" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -76,13 +94,14 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/twitter2elastic/src/test/resources" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="IntroduceConstantDialog.RECENTS_KEY">
       <recent name="com.github.julian_mateu.kafka.ElasticSearchIntegrationTest" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.DotEnvIntegrationTest.envLoads">
+  <component name="RunManager" selected="Application.HelloWorld">
     <configuration name="HelloWorld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.HelloWorld" />
       <module name="twitter2elastic.main" />
@@ -96,12 +115,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DotEnvIntegrationTest.envLoads" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="HoseBirdIntegrationTests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.HoseBirdIntegrationTests" />
+      <module name="twitter2elastic.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.julian_mateu.kafka.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HoseBirdIntegrationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.DotEnvIntegrationTest.envLoads&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.HoseBirdIntegrationTests&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -117,12 +149,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ElasticSearchIntegrationTest.createAndRetrieveNewDocumentUsingSearch" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="HoseBirdIntegrationTests.readMessages" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.ElasticSearchIntegrationTest.createAndRetrieveNewDocumentUsingSearch&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.HoseBirdIntegrationTests.readMessages&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -138,39 +170,41 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ElasticSearchIntegrationTest.testClient" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="twitter2elastic [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.ElasticSearchIntegrationTest.testClient&quot;" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
+            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.HoseBirdIntegrationTests" />
+      <item itemvalue="Gradle.HoseBirdIntegrationTests.readMessages" />
+      <item itemvalue="Gradle.HoseBirdIntegrationTests" />
       <item itemvalue="Application.HelloWorld" />
-      <item itemvalue="Gradle.ElasticSearchIntegrationTest.testClient" />
-      <item itemvalue="Gradle.ElasticSearchIntegrationTest.createAndRetrieveNewDocumentUsingSearch" />
-      <item itemvalue="Gradle.DotEnvIntegrationTest.envLoads" />
+      <item itemvalue="Gradle.twitter2elastic [clean]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.DotEnvIntegrationTest.envLoads" />
-        <item itemvalue="Gradle.ElasticSearchIntegrationTest.createAndRetrieveNewDocumentUsingSearch" />
-        <item itemvalue="Gradle.ElasticSearchIntegrationTest.testClient" />
+        <item itemvalue="Gradle.HoseBirdIntegrationTests.readMessages" />
+        <item itemvalue="Gradle.twitter2elastic [clean]" />
+        <item itemvalue="Gradle.HoseBirdIntegrationTests" />
         <item itemvalue="Application.HelloWorld" />
+        <item itemvalue="Application.HoseBirdIntegrationTests" />
       </list>
     </recent_temporary>
   </component>
@@ -190,7 +224,21 @@
       <option name="project" value="LOCAL" />
       <updated>1630178925429</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add DotEnvIntegrationTest">
+      <created>1630179483752</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1630179483752</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add DotEnvIntegrationTest">
+      <created>1630179571583</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1630179571583</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -207,14 +255,23 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add ElasticSearchIntegrationTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add ElasticSearchIntegrationTest" />
+    <MESSAGE value="Add DotEnvIntegrationTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add DotEnvIntegrationTest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="3" />
+        </breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="org.apache.http.ConnectionClosedException" package="org.apache.http" />
+          <option name="timeStamp" value="7" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ClassCastException" package="java.lang" />
+          <option name="timeStamp" value="11" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
