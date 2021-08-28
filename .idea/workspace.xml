@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/ElasticSearchIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="Add ElasticSearchIntegrationTest">
+      <change afterPath="$PROJECT_DIR$/example.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/DotEnvIntegrationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/HelloWorld.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,11 +66,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.google.cloudcode.ide_session_index" value="20210828_0001" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -81,7 +82,7 @@
       <recent name="com.github.julian_mateu.kafka.ElasticSearchIntegrationTest" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ElasticSearchIntegrationTest.createAndRetrieveNewDocumentUsingSearch">
+  <component name="RunManager" selected="Gradle.DotEnvIntegrationTest.envLoads">
     <configuration name="HelloWorld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.HelloWorld" />
       <module name="twitter2elastic.main" />
@@ -94,6 +95,27 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="DotEnvIntegrationTest.envLoads" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.DotEnvIntegrationTest.envLoads&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="ElasticSearchIntegrationTest.createAndRetrieveNewDocumentUsingSearch" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -141,9 +163,11 @@
       <item itemvalue="Application.HelloWorld" />
       <item itemvalue="Gradle.ElasticSearchIntegrationTest.testClient" />
       <item itemvalue="Gradle.ElasticSearchIntegrationTest.createAndRetrieveNewDocumentUsingSearch" />
+      <item itemvalue="Gradle.DotEnvIntegrationTest.envLoads" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.DotEnvIntegrationTest.envLoads" />
         <item itemvalue="Gradle.ElasticSearchIntegrationTest.createAndRetrieveNewDocumentUsingSearch" />
         <item itemvalue="Gradle.ElasticSearchIntegrationTest.testClient" />
         <item itemvalue="Application.HelloWorld" />
@@ -159,6 +183,14 @@
       <option name="presentableId" value="Default" />
       <updated>1630155015619</updated>
     </task>
+    <task id="LOCAL-00001" summary="Add ElasticSearchIntegrationTest">
+      <created>1630178925429</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1630178925429</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -172,6 +204,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add ElasticSearchIntegrationTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ElasticSearchIntegrationTest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
