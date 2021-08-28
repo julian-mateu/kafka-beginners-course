@@ -4,12 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30cf4728-eb36-44ef-a0fb-0b20044bfaf1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/gradle_wrapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/kafka-beginners-course.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/twitter2elastic.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/twitter2elastic.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/twitter2elastic.test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/twitter2elastic/twitter2elastic.twitter2elastic.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorials/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorials/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/tutorials/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorials/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tutorials/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/tutorials/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/tutorials.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,44 +34,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExternalProjectsData">
-    <projectState path="$PROJECT_DIR$">
-      <ProjectState />
-    </projectState>
     <projectState path="$PROJECT_DIR$/tutorials">
       <ProjectState />
     </projectState>
-  </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="kafka-beginners-course" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
+    <projectState path="$PROJECT_DIR$/twitter2elastic">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1xKc5g4rRoME2mNcjOI4VQuzNmP" />
+  <component name="ProjectId" id="1xMBKs5oKGH3xaL0JonNKoxeEIY" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -62,81 +52,21 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20210828_0005" />
-    <property name="jdk.selected.JAVA_MODULE" value="11" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.13351136" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.google.cloudcode.ide_session_index" value="20210828_0000" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.github.julian_mateu.kafka.tutorial1" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ProducerDemoWithKeys">
-    <configuration name="ConsumerDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.tutorial1.ConsumerDemo" />
-      <module name="tutorials.main" />
+  <component name="RunManager">
+    <configuration name="HelloWorld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.HelloWorld" />
+      <module name="twitter2elastic.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.github.julian_mateu.kafka.tutorial1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ConsumerDemoAssignSeek" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.tutorial1.ConsumerDemoAssignSeek" />
-      <module name="tutorials.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.julian_mateu.kafka.tutorial1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProducerDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.tutorial1.ProducerDemo" />
-      <module name="tutorials.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.julian_mateu.kafka.tutorial1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProducerDemoWithCallback" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.tutorial1.ProducerDemoWithCallback" />
-      <module name="tutorials.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.julian_mateu.kafka.tutorial1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProducerDemoWithKeys" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.tutorial1.ProducerDemoWithKeys" />
-      <module name="tutorials.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.julian_mateu.kafka.tutorial1.*" />
+          <option name="PATTERN" value="com.github.julian_mateu.kafka.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -146,22 +76,18 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ProducerDemoWithKeys" />
-        <item itemvalue="Application.ProducerDemoWithCallback" />
-        <item itemvalue="Application.ProducerDemo" />
-        <item itemvalue="Application.ConsumerDemoAssignSeek" />
-        <item itemvalue="Application.ConsumerDemo" />
+        <item itemvalue="Application.HelloWorld" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="30cf4728-eb36-44ef-a0fb-0b20044bfaf1" name="Changes" comment="" />
-      <created>1630107040576</created>
+      <changelist id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="" />
+      <created>1630155015619</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1630107040576</updated>
+      <updated>1630155015619</updated>
     </task>
     <servers />
   </component>
