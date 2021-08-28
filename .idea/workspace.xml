@@ -5,29 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30cf4728-eb36-44ef-a0fb-0b20044bfaf1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/kafka-beginners-course.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/kafka-beginners-course.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/kafka-beginners-course.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/julian_mateu/kafka/tutorial1/ConsumerDemo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/julian_mateu/kafka/tutorial1/ConsumerDemoAssignSeek.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/julian_mateu/kafka/tutorial1/ProducerDemo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/julian_mateu/kafka/tutorial1/ProducerDemoWithCallback.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/julian_mateu/kafka/tutorial1/ProducerDemoWithKeys.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/gradle_wrapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorials/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/tutorials/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorials/tutorials.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +20,29 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+    <projectState path="$PROJECT_DIR$/tutorials">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="kafka-beginners-course" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -60,19 +65,21 @@
     <property name="com.google.cloudcode.ide_session_index" value="20210828_0005" />
     <property name="jdk.selected.JAVA_MODULE" value="11" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.13351136" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.github.julian_mateu.kafka.tutorial1" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ConsumerDemoAssignSeek">
+  <component name="RunManager" selected="Application.ProducerDemoWithKeys">
     <configuration name="ConsumerDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.tutorial1.ConsumerDemo" />
-      <module name="kafka-beginners-course.main" />
+      <module name="tutorials.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.github.julian_mateu.kafka.tutorial1.*" />
@@ -84,8 +91,10 @@
       </method>
     </configuration>
     <configuration name="ConsumerDemoAssignSeek" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.tutorial1.ConsumerDemoAssignSeek" />
-      <module name="kafka-beginners-course.main" />
+      <module name="tutorials.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.github.julian_mateu.kafka.tutorial1.*" />
@@ -98,7 +107,7 @@
     </configuration>
     <configuration name="ProducerDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.tutorial1.ProducerDemo" />
-      <module name="kafka-beginners-course.main" />
+      <module name="tutorials.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.github.julian_mateu.kafka.tutorial1.*" />
@@ -111,7 +120,7 @@
     </configuration>
     <configuration name="ProducerDemoWithCallback" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.tutorial1.ProducerDemoWithCallback" />
-      <module name="kafka-beginners-course.main" />
+      <module name="tutorials.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.github.julian_mateu.kafka.tutorial1.*" />
@@ -124,7 +133,7 @@
     </configuration>
     <configuration name="ProducerDemoWithKeys" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.tutorial1.ProducerDemoWithKeys" />
-      <module name="kafka-beginners-course.main" />
+      <module name="tutorials.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.github.julian_mateu.kafka.tutorial1.*" />
@@ -137,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ConsumerDemoAssignSeek" />
-        <item itemvalue="Application.ConsumerDemo" />
         <item itemvalue="Application.ProducerDemoWithKeys" />
         <item itemvalue="Application.ProducerDemoWithCallback" />
         <item itemvalue="Application.ProducerDemo" />
+        <item itemvalue="Application.ConsumerDemoAssignSeek" />
+        <item itemvalue="Application.ConsumerDemo" />
       </list>
     </recent_temporary>
   </component>
@@ -155,5 +164,16 @@
       <updated>1630107040576</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
