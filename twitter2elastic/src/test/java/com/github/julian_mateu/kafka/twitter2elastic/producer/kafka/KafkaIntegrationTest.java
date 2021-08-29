@@ -1,5 +1,9 @@
 package com.github.julian_mateu.kafka.twitter2elastic.producer.kafka;
 
+import com.evanlennick.retry4j.CallExecutorBuilder;
+import com.evanlennick.retry4j.Status;
+import com.evanlennick.retry4j.config.RetryConfig;
+import com.evanlennick.retry4j.config.RetryConfigBuilder;
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.KafkaAdminClient;
@@ -10,6 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.Properties;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,8 +29,16 @@ public class KafkaIntegrationTest {
 
     private static final String BOOTSTRAP_SERVERS = "localhost:9092";
     private static final String TOPIC_NAME = "integration_test";
+    private static final RetryConfig RETRY_CONFIG = new RetryConfigBuilder()
+            .exponentialBackoff5Tries5Sec()
+            .build();
 
     private Producer producer;
+
+    @SuppressWarnings("unchecked")
+    private static Status<Object> retry(Callable<Object> callable) {
+        return new CallExecutorBuilder<>().config(RETRY_CONFIG).build().execute(callable);
+    }
 
     @BeforeEach
     public void setUp() throws ExecutionException, InterruptedException {
@@ -35,11 +48,10 @@ public class KafkaIntegrationTest {
         }
         if (!adminClient.listTopics().names().get().contains(TOPIC_NAME)) {
             NewTopic newTopic = new NewTopic(TOPIC_NAME, 1, (short) 1);
-            adminClient.createTopics(Collections.singletonList(newTopic)).all().get();
+            retry(() -> adminClient.createTopics(Collections.singletonList(newTopic)).all().get());
         }
 
         producer = ProducerFactory.getProducer(BOOTSTRAP_SERVERS, TOPIC_NAME);
-
     }
 
     @Test

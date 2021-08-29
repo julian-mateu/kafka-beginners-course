@@ -8,7 +8,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.Optional;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
@@ -28,7 +27,7 @@ class TwitterProducerApplicationTest {
     }
 
     @Test
-    void run() throws ExecutionException, InterruptedException {
+    void run() {
         // Given
         TwitterProducerApplication application = new TwitterProducerApplication(tweetProducer);
         when(tweetProducer.readAndProduce())

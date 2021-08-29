@@ -59,12 +59,10 @@ public class TwitterMessageReaderTest {
         when(queue.poll(anyInt(), eq(TimeUnit.SECONDS))).thenThrow(new InterruptedException(expectedMessage));
 
         // When
-        IllegalStateException thrown = assertThrows(IllegalStateException.class, twitterMessageReader::readMessage);
+        InterruptedException thrown = assertThrows(InterruptedException.class, twitterMessageReader::readMessage);
 
         // Then
-        assertTrue(thrown.getMessage().contains(expectedMessage),
-                "Exception message is unexpected, expected: " + expectedMessage
-                        + " . but got: " + thrown.getMessage());
+        assertEquals(thrown.getMessage(), expectedMessage);
     }
 
     @Test

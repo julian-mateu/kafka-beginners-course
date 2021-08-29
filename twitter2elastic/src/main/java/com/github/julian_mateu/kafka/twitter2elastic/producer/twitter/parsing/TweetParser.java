@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 
 import java.util.Map;
 
@@ -46,13 +47,10 @@ public class TweetParser {
         return Tweet.of(id, payload, message);
     }
 
+    @SneakyThrows(JsonProcessingException.class)
     private Map<String, Object> getPayloadAsMap(String message) {
-        try {
-            return objectMapper.readValue(message, new TypeReference<Map<String, Object>>() {
-            });
-        } catch (JsonProcessingException exception) {
-            throw new IllegalArgumentException(exception);
-        }
+        return objectMapper.readValue(message, new TypeReference<Map<String, Object>>() {
+        });
     }
 
     private Map<String, Object> getAsMapIfPresent(Map<String, Object> payload, String key) {

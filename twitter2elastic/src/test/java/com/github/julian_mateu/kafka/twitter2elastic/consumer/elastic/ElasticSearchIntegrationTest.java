@@ -1,12 +1,10 @@
-package com.github.julian_mateu.kafka.twitter2elastic.consumer;
+package com.github.julian_mateu.kafka.twitter2elastic.consumer.elastic;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.NonNull;
-import org.apache.http.HttpHost;
+import lombok.SneakyThrows;
 import org.apache.lucene.search.TotalHits;
 import org.elasticsearch.action.DocWriteResponse;
-import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.elasticsearch.action.admin.indices.refresh.RefreshRequest;
 import org.elasticsearch.action.admin.indices.refresh.RefreshResponse;
 import org.elasticsearch.action.get.GetRequest;
@@ -15,11 +13,8 @@ import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
-import org.elasticsearch.action.support.master.AcknowledgedResponse;
 import org.elasticsearch.client.RequestOptions;
-import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.client.indices.CreateIndexRequest;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.rest.RestStatus;
@@ -51,24 +46,13 @@ public class ElasticSearchIntegrationTest {
     private static final String TEST_PAYLOAD = "{\"name\":\"integration_test\"}";
     private static final String DOCUMENT_ID = "1";
 
+    private static final IntegrationTestElasticSearchWriterFactory ELASTIC_SEARCH_WRITER_FACTORY =
+            new IntegrationTestElasticSearchWriterFactory(
+                    INTEGRATION_TEST_INDEX, HOSTNAME, SCHEME, PORT
+            );
+
+    private ElasticSearchWriter elasticSearchWriter;
     private RestHighLevelClient client;
-
-    private static void deleteIntegrationTestIndex(@NonNull RestHighLevelClient client) throws IOException {
-        AcknowledgedResponse deleteIndexResponse = client.indices()
-                .delete(
-                        new DeleteIndexRequest(INTEGRATION_TEST_INDEX),
-                        RequestOptions.DEFAULT
-                );
-        assertTrue(deleteIndexResponse.isAcknowledged());
-    }
-
-    private static void createIntegrationTestIndex(@NonNull RestHighLevelClient client) throws IOException {
-        AcknowledgedResponse createIndexResponse = client.indices().create(
-                new CreateIndexRequest(INTEGRATION_TEST_INDEX),
-                RequestOptions.DEFAULT
-        );
-        assertTrue(createIndexResponse.isAcknowledged());
-    }
 
     private static void assertFalseOrNull(Boolean value) {
         if (value == null) {
@@ -79,15 +63,14 @@ public class ElasticSearchIntegrationTest {
     }
 
     @BeforeEach
-    public void setupIntegrationTestIndex() throws IOException {
-        setupClient();
-        deleteIntegrationTestIndex(client);
-        createIntegrationTestIndex(client);
+    public void setUp() {
+        elasticSearchWriter = ELASTIC_SEARCH_WRITER_FACTORY.getWriter();
+        client = ELASTIC_SEARCH_WRITER_FACTORY.getClient();
     }
 
     @AfterEach
-    public void cleanup() throws IOException {
-        client.close();
+    public void cleanup() throws Exception {
+        elasticSearchWriter.close();
     }
 
     @Test
@@ -104,7 +87,8 @@ public class ElasticSearchIntegrationTest {
         assertMatchAllSearchReturnsOnlyOneDocument(documentId, payload);
     }
 
-    private void assertDocumentExists(String documentId) throws IOException {
+    @SneakyThrows(IOException.class)
+    private void assertDocumentExists(String documentId) {
         GetRequest getIndexRequest = new GetRequest(INTEGRATION_TEST_INDEX, documentId);
         GetResponse getIndexResponse = client.get(getIndexRequest, RequestOptions.DEFAULT);
         assertTrue(getIndexResponse.isExists());
@@ -143,13 +127,5 @@ public class ElasticSearchIntegrationTest {
         RefreshRequest refreshRequest = new RefreshRequest(INTEGRATION_TEST_INDEX);
         RefreshResponse refreshResponse = client.indices().refresh(refreshRequest, RequestOptions.DEFAULT);
         assertEquals(0, refreshResponse.getFailedShards());
-    }
-
-    private void setupClient() {
-        client = new RestHighLevelClient(
-                RestClient.builder(
-                        new HttpHost(HOSTNAME, PORT, SCHEME)
-                )
-        );
     }
 }

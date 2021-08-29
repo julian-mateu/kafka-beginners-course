@@ -9,11 +9,11 @@ import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.parsing.Tw
 import lombok.Cleanup;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;
 
 import java.util.Optional;
-import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -31,7 +31,7 @@ public class TwitterProducerApplication {
     @NonNull
     private final TweetProducer tweetProducer;
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    public static void main(String[] args) {
 
         @Cleanup TwitterMessageReader twitterMessageReader = TwitterMessageReaderFactory.get();
 
@@ -46,14 +46,9 @@ public class TwitterProducerApplication {
 
     /**
      * Runs the Producer application.
-     *
-     * @throws CancellationException if the computation was cancelled
-     * @throws ExecutionException    if the computation threw an
-     *                               exception
-     * @throws InterruptedException  if the current thread was interrupted
-     *                               while waiting
      */
-    public void run() throws ExecutionException, InterruptedException {
+    @SneakyThrows({ExecutionException.class, InterruptedException.class})
+    public void run() {
         int numberOfMessagesWrittenSoFar = 0;
 
         while (numberOfMessagesWrittenSoFar < NUMBER_OF_MESSAGES_TO_WRITE) {

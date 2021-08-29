@@ -3,6 +3,7 @@ package com.github.julian_mateu.kafka.twitter2elastic.producer.twitter;
 import com.twitter.hbc.httpclient.BasicClient;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
@@ -38,12 +39,7 @@ public class TwitterMessageReader implements AutoCloseable {
      */
     public Optional<String> readMessage() {
         checkClientIsAvailable();
-
-        try {
-            return getMessageFromQueue();
-        } catch (InterruptedException exception) {
-            throw new IllegalStateException(exception);
-        }
+        return getMessageFromQueue();
     }
 
     private void checkClientIsAvailable() {
@@ -53,7 +49,8 @@ public class TwitterMessageReader implements AutoCloseable {
         }
     }
 
-    private Optional<String> getMessageFromQueue() throws InterruptedException {
+    @SneakyThrows(InterruptedException.class)
+    private Optional<String> getMessageFromQueue() {
         String message = queue.poll(5, TimeUnit.SECONDS);
         log.debug(message == null ? "Did not receive a message in 5 seconds" : message);
         return Optional.ofNullable(message);
