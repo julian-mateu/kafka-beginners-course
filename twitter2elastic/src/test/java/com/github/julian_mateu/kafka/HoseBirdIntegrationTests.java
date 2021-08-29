@@ -11,11 +11,10 @@ import com.twitter.hbc.httpclient.BasicClient;
 import com.twitter.hbc.httpclient.auth.Authentication;
 import com.twitter.hbc.httpclient.auth.OAuth1;
 import io.github.cdimascio.dotenv.Dotenv;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 import java.util.Optional;
@@ -31,9 +30,9 @@ import static org.junit.jupiter.api.Assertions.fail;
  *
  * @see <a href="https://github.com/twitter/hbc">Hosebird Client</a>
  */
+@Slf4j
 public class HoseBirdIntegrationTests {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(HoseBirdIntegrationTests.class);
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     private Secrets secrets;
@@ -63,10 +62,10 @@ public class HoseBirdIntegrationTests {
 
         String message = queue.poll(5, TimeUnit.SECONDS);
         if (message == null) {
-            LOGGER.debug("Did not receive a message in 5 seconds");
+            log.debug("Did not receive a message in 5 seconds");
             return Optional.empty();
         } else {
-            LOGGER.debug(message);
+            log.debug(message);
             return Optional.of(message);
         }
     }
@@ -87,7 +86,7 @@ public class HoseBirdIntegrationTests {
 
         // Then
         long readMessages = client.getStatsTracker().getNumMessages();
-        LOGGER.debug("The client read {} messages!\n", readMessages);
+        log.debug("The client read {} messages!\n", readMessages);
 
         assertNotEquals(0, readMessages);
         assertNotEquals(0, actualMessages);
@@ -129,7 +128,7 @@ public class HoseBirdIntegrationTests {
         );
 
         client = new ClientBuilder()
-                .name("sampleExampleClient")
+                .name("integrationTestClient")
                 .hosts(Constants.STREAM_HOST)
                 .endpoint(endpoint)
                 .authentication(auth)

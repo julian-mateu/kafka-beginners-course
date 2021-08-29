@@ -15,8 +15,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class TwitterReaderTest {
 
@@ -91,5 +90,16 @@ public class TwitterReaderTest {
 
         // Then
         assertEquals(Optional.of(expectedMessage), result);
+    }
+
+    @Test
+    public void closeStopsClient() {
+        // Given
+
+        // When
+        twitterReader.close();
+
+        // Then
+        verify(client, times(1)).stop();
     }
 }

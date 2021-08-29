@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * @see <a href="https://github.com/cdimascio/dotenv-java">dotenv-java</a>
  */
-public class DotEnvIntegrationTest {
+public class DotEnvTest {
 
     @Test
     public void envLoads() {
@@ -21,15 +21,15 @@ public class DotEnvIntegrationTest {
                 .load();
 
         // When
-        String consumerKey = dotenv.get("API_KEY");
-        String consumerSecret = dotenv.get("API_SECRET");
-        String token = dotenv.get("ACCESS_TOKEN");
-        String secret = dotenv.get("ACCESS_TOKEN_SECRET");
+        Secrets result = new SecretsLoader(dotenv).loadSecrets();
 
         // Then
-        assertEquals("EXAMPLE_API_KEY", consumerKey);
-        assertEquals("EXAMPLE_API_SECRET", consumerSecret);
-        assertEquals("EXAMPLE_ACCESS_TOKEN", token);
-        assertEquals("EXAMPLE_ACCESS_TOKEN_SECRET", secret);
+        Secrets expected = Secrets.of(
+                "EXAMPLE_API_KEY",
+                "EXAMPLE_API_SECRET",
+                "EXAMPLE_ACCESS_TOKEN",
+                "EXAMPLE_ACCESS_TOKEN_SECRET"
+        );
+        assertEquals(expected, result);
     }
 }

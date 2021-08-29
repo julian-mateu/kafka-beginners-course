@@ -4,20 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="Remove warnings">
-      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/Secrets.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/SecretsLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/TwitterReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/TwitterReaderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="Implement TwitterReader and tests">
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/Tweet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/TweetParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/TweetProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/TwitterReaderFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/TweetParserTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/TweetParserTestMock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/HelloWorld.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/TwitterReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/TwitterReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/ElasticSearchIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/ElasticSearchIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/DotEnvIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/DotEnvTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/HoseBirdIntegrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/HoseBirdIntegrationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/resources/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/TwitterReaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/TwitterReaderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +67,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -94,6 +95,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.google.cloudcode.ide_session_index" value="20210828_0001" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -107,33 +111,92 @@
       <recent name="$PROJECT_DIR$/twitter2elastic/src/test/resources" />
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="com.github.julian_mateu.kafka.TwitterReaderFactory" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="IntroduceConstantDialog.RECENTS_KEY">
       <recent name="com.github.julian_mateu.kafka.ElasticSearchIntegrationTest" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="com.github.julian_mateu.kafka" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.github.julian_mateu.kafka" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.HelloWorld">
-    <configuration name="HelloWorld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.HelloWorld" />
-      <module name="twitter2elastic.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.julian_mateu.kafka.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HoseBirdIntegrationTests.readMessages" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.DotEnvTest">
+    <configuration name="DotEnvTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.HoseBirdIntegrationTests.readMessages&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.DotEnvTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TweetParserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.TweetParserTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TweetParserTestMock" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.TweetParserTestMock&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TweetParserTest.wrapsJsonProcessingException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.TweetParserTest.wrapsJsonProcessingException&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -170,62 +233,20 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TwitterReaderTest.test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.TwitterReaderTest.test&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="TwitterReaderTest.throwsIfClientIsDone" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.TwitterReaderTest.throwsIfClientIsDone&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Gradle.HoseBirdIntegrationTests.readMessages" />
-      <item itemvalue="Gradle.TwitterReaderTest.test" />
-      <item itemvalue="Gradle.TwitterReaderTest.throwsIfClientIsDone" />
       <item itemvalue="Gradle.TwitterReaderTest" />
-      <item itemvalue="Application.HelloWorld" />
+      <item itemvalue="Gradle.TweetParserTest.wrapsJsonProcessingException" />
+      <item itemvalue="Gradle.TweetParserTest" />
+      <item itemvalue="Gradle.TweetParserTestMock" />
+      <item itemvalue="Gradle.DotEnvTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloWorld" />
+        <item itemvalue="Gradle.DotEnvTest" />
+        <item itemvalue="Gradle.TweetParserTest" />
+        <item itemvalue="Gradle.TweetParserTestMock" />
         <item itemvalue="Gradle.TwitterReaderTest" />
-        <item itemvalue="Gradle.TwitterReaderTest.throwsIfClientIsDone" />
-        <item itemvalue="Gradle.TwitterReaderTest.test" />
-        <item itemvalue="Gradle.HoseBirdIntegrationTests.readMessages" />
+        <item itemvalue="Gradle.TweetParserTest.wrapsJsonProcessingException" />
       </list>
     </recent_temporary>
   </component>
@@ -273,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630187413335</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Implement TwitterReader and tests">
+      <created>1630194049854</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1630194049854</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -293,7 +321,8 @@
     <MESSAGE value="Add DotEnvIntegrationTest" />
     <MESSAGE value="Add HoseBirdIntegrationTests and fix Log4J configuration" />
     <MESSAGE value="Remove warnings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove warnings" />
+    <MESSAGE value="Implement TwitterReader and tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement TwitterReader and tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -312,5 +341,11 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/kafka_beginners_course$TweetParserTest.ic" NAME="TweetParserTest Coverage Results" MODIFIED="1630200963205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kafka_beginners_course$TweetParserTestMock.ic" NAME="TweetParserTestMock Coverage Results" MODIFIED="1630200951700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kafka_beginners_course$TwitterReaderTest.ic" NAME="TwitterReaderTest Coverage Results" MODIFIED="1630200939926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kafka_beginners_course$DotEnvTest.ic" NAME="DotEnvTest Coverage Results" MODIFIED="1630201209371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
