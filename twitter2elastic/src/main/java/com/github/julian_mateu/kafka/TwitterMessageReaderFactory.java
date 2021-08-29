@@ -11,16 +11,24 @@ import io.github.cdimascio.dotenv.Dotenv;
 
 import java.util.concurrent.LinkedBlockingQueue;
 
-public abstract class TwitterReaderFactory {
+/**
+ * Factory to get an instance of {@link TwitterMessageReader}.
+ */
+public abstract class TwitterMessageReaderFactory {
 
-    private TwitterReaderFactory() {
+    private TwitterMessageReaderFactory() {
     }
 
-    public static TwitterReader get() {
+    /**
+     * Builds a {@link TwitterMessageReader}.
+     *
+     * @return A new {@link TwitterMessageReader} instance
+     */
+    public static TwitterMessageReader get() {
         LinkedBlockingQueue<String> queue = createQueue();
         Secrets secrets = loadSecrets();
-        BasicClient client = TwitterReaderFactory.createClient(queue, secrets);
-        return new TwitterReader(queue, client);
+        BasicClient client = TwitterMessageReaderFactory.createClient(queue, secrets);
+        return new TwitterMessageReader(queue, client);
     }
 
     private static LinkedBlockingQueue<String> createQueue() {

@@ -9,15 +9,21 @@ import java.util.Optional;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Uses the HoseBird Client {@link BasicClient} to get messages from the Twitter API.
+ */
 @RequiredArgsConstructor
 @Slf4j
-public class TwitterReader implements AutoCloseable {
+public class TwitterMessageReader implements AutoCloseable {
 
     @NonNull
     private final BlockingQueue<String> queue;
     @NonNull
     private final BasicClient client;
 
+    /**
+     * Closes the {@link BasicClient}.
+     */
     @Override
     public void close() {
         client.stop();
@@ -25,6 +31,11 @@ public class TwitterReader implements AutoCloseable {
         log.debug("The client read {} messages!\n", readMessages);
     }
 
+    /**
+     * Reads a tweet as a JSON String from the Twitter API.
+     *
+     * @return An {@link Optional} {@link String}
+     */
     public Optional<String> readMessage() {
         checkClientIsAvailable();
 

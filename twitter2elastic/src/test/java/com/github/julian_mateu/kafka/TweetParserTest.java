@@ -57,7 +57,7 @@ class TweetParserTest {
         Tweet result = parser.parseMessage(payload);
 
         // Then
-        Tweet expected = new Tweet("123", ImmutableMap.of("id_str", "123", "other", "field"));
+        Tweet expected = Tweet.of("123", ImmutableMap.of("id_str", "123", "other", "field"), payload);
         assertEquals(expected, result);
     }
 
@@ -70,12 +70,13 @@ class TweetParserTest {
         Tweet result = parser.parseMessage(payload);
 
         // Then
-        Tweet expected = new Tweet(
+        Tweet expected = Tweet.of(
                 "123",
                 ImmutableMap.of(
                         "delete",
                         ImmutableMap.of("status", ImmutableMap.of("id_str", "123", "other", "field"))
-                )
+                ),
+                payload
         );
         assertEquals(expected, result);
     }

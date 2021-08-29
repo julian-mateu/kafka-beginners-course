@@ -8,12 +8,21 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Map;
 
+/**
+ * Helper class to parse a json message into a {@link Tweet} object.
+ */
 @RequiredArgsConstructor
 public class TweetParser {
 
     @NonNull
     private final ObjectMapper objectMapper;
 
+    /**
+     * Parses a json string into a {@link Tweet}.
+     *
+     * @param message a string representing a tweet in JSON format
+     * @return A new {@link Tweet} instance
+     */
     public Tweet parseMessage(String message) {
         try {
             return getTweet(message);
@@ -34,7 +43,7 @@ public class TweetParser {
         }
 
         String id = getIdAsString(payloadContainingId);
-        return new Tweet(id, payload);
+        return Tweet.of(id, payload, message);
     }
 
     private Map<String, Object> getPayloadAsMap(String message) {

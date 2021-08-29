@@ -17,14 +17,14 @@ import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.*;
 
-public class TwitterReaderTest {
+public class TwitterMessageReaderTest {
 
     @Mock
     private BlockingQueue<String> queue;
     @Mock
     private BasicClient client;
 
-    private TwitterReader twitterReader;
+    private TwitterMessageReader twitterMessageReader;
 
     @BeforeEach
     public void initMocks() {
@@ -34,7 +34,7 @@ public class TwitterReaderTest {
         when(client.getExitEvent()).thenReturn(mock(Event.class));
         when(client.isDone()).thenReturn(false);
 
-        twitterReader = new TwitterReader(queue, client);
+        twitterMessageReader = new TwitterMessageReader(queue, client);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class TwitterReaderTest {
         when(client.isDone()).thenReturn(true);
 
         // When
-        IllegalStateException thrown = assertThrows(IllegalStateException.class, twitterReader::readMessage);
+        IllegalStateException thrown = assertThrows(IllegalStateException.class, twitterMessageReader::readMessage);
 
         // Then
         String expectedMessage = "Client connection closed unexpectedly: ";
@@ -59,7 +59,7 @@ public class TwitterReaderTest {
         when(queue.poll(anyInt(), eq(TimeUnit.SECONDS))).thenThrow(new InterruptedException(expectedMessage));
 
         // When
-        IllegalStateException thrown = assertThrows(IllegalStateException.class, twitterReader::readMessage);
+        IllegalStateException thrown = assertThrows(IllegalStateException.class, twitterMessageReader::readMessage);
 
         // Then
         assertTrue(thrown.getMessage().contains(expectedMessage),
@@ -73,7 +73,7 @@ public class TwitterReaderTest {
         when(queue.poll(anyInt(), eq(TimeUnit.SECONDS))).thenReturn(null);
 
         // When
-        Optional<String> result = twitterReader.readMessage();
+        Optional<String> result = twitterMessageReader.readMessage();
 
         // Then
         assertEquals(Optional.empty(), result);
@@ -86,7 +86,7 @@ public class TwitterReaderTest {
         when(queue.poll(anyInt(), eq(TimeUnit.SECONDS))).thenReturn(expectedMessage);
 
         // When
-        Optional<String> result = twitterReader.readMessage();
+        Optional<String> result = twitterMessageReader.readMessage();
 
         // Then
         assertEquals(Optional.of(expectedMessage), result);
@@ -97,7 +97,7 @@ public class TwitterReaderTest {
         // Given
 
         // When
-        twitterReader.close();
+        twitterMessageReader.close();
 
         // Then
         verify(client, times(1)).stop();

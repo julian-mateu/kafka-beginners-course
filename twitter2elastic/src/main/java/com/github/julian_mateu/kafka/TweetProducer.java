@@ -1,44 +1,38 @@
 package com.github.julian_mateu.kafka;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Cleanup;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.clients.producer.RecordMetadata;
 
-import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.Future;
 
+/**
+ * Producer that reads a message from the Twitter API {@link TwitterMessageReader} and sends it to the
+ * {@link MessageProcessor}.
+ */
 @Slf4j
+@RequiredArgsConstructor
 public class TweetProducer {
 
-    public static void main(String[] args) {
-        readMessages();
+    @NonNull
+    private final TwitterMessageReader reader;
+    @NonNull
+    private final MessageProcessor processor;
+
+    /**
+     * Reads a message from the {@link TwitterMessageReader} and sends it to the {@link MessageProcessor}
+     *
+     * @return An {@link Optional} instance of a {@link RecordMetadata} {@link Future}
+     */
+    public Optional<Future<RecordMetadata>> readAndProduce() {
+        return reader.readMessage()
+                .map(this::sendToProcessor);
     }
 
-    public static void readMessages() {
-        int actualMessages = 0;
-
-        @Cleanup
-        TwitterReader reader = TwitterReaderFactory.get();
-
-        for (int messagesRead = 0; messagesRead < 10; messagesRead++) {
-            Optional<String> message = reader.readMessage();
-            if (message.isPresent()) {
-                log.debug(message.get());
-                processMessage(message.get());
-                actualMessages++;
-            }
-        }
-
-        log.debug("processed {} messages", actualMessages);
-    }
-
-    public static void processMessage(String message) {
-        TweetParser parser = new TweetParser(new ObjectMapper());
-        Map<String, Object> payload = parser.parseMessage(message).getPayload();
-        if (payload.containsKey("delete")) {
-            log.info(payload.getOrDefault("delete", "").toString());
-        } else {
-            log.info(payload.getOrDefault("timestamp_ms", "").toString());
-        }
+    private Future<RecordMetadata> sendToProcessor(String content) {
+        log.info(content);
+        return processor.processMessage(content);
     }
 }

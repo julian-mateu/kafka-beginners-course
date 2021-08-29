@@ -4,8 +4,12 @@ import lombok.Value;
 
 import java.util.Map;
 
-@Value
+/**
+ * Container for a tweet.
+ */
+@Value(staticConstructor = "of")
 public class Tweet {
     String id;
     Map<String, Object> payload;
+    String payloadString;
 }
