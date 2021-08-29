@@ -1,6 +1,6 @@
-package com.github.julian_mateu.kafka;
+package com.github.julian_mateu.kafka.twitter2elastic.producer;
 
-
+import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.TwitterMessageReader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;

@@ -1,4 +1,4 @@
-package com.github.julian_mateu.kafka;
+package com.github.julian_mateu.kafka.twitter2elastic.producer.kafka;
 
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.AdminClientConfig;
@@ -33,8 +33,10 @@ public class KafkaIntegrationTest {
         if (adminClient.listTopics().names().get().contains(TOPIC_NAME)) {
             adminClient.deleteTopics(Collections.singletonList(TOPIC_NAME)).all().get();
         }
-        NewTopic newTopic = new NewTopic(TOPIC_NAME, 1, (short) 1);
-        adminClient.createTopics(Collections.singletonList(newTopic)).all().get();
+        if (!adminClient.listTopics().names().get().contains(TOPIC_NAME)) {
+            NewTopic newTopic = new NewTopic(TOPIC_NAME, 1, (short) 1);
+            adminClient.createTopics(Collections.singletonList(newTopic)).all().get();
+        }
 
         producer = ProducerFactory.getProducer(BOOTSTRAP_SERVERS, TOPIC_NAME);
 

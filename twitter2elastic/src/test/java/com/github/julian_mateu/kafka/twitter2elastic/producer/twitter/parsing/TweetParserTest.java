@@ -1,4 +1,4 @@
-package com.github.julian_mateu.kafka;
+package com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.parsing;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;

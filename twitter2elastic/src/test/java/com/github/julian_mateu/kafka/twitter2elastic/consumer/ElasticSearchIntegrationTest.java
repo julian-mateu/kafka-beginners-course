@@ -1,4 +1,4 @@
-package com.github.julian_mateu.kafka;
+package com.github.julian_mateu.kafka.twitter2elastic.consumer;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;

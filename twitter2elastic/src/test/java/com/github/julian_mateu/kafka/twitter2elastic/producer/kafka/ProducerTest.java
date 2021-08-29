@@ -1,4 +1,4 @@
-package com.github.julian_mateu.kafka;
+package com.github.julian_mateu.kafka.twitter2elastic.producer.kafka;
 
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;

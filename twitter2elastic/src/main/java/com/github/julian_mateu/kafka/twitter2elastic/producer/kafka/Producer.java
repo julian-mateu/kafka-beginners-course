@@ -1,4 +1,4 @@
-package com.github.julian_mateu.kafka;
+package com.github.julian_mateu.kafka.twitter2elastic.producer.kafka;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

@@ -1,5 +1,7 @@
-package com.github.julian_mateu.kafka;
+package com.github.julian_mateu.kafka.twitter2elastic.producer.twitter;
 
+import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.secrets.Secrets;
+import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.secrets.SecretsLoader;
 import com.twitter.hbc.ClientBuilder;
 import com.twitter.hbc.core.Constants;
 import com.twitter.hbc.core.endpoint.StatusesSampleEndpoint;

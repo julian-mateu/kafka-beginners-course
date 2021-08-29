@@ -1,7 +1,8 @@
-package com.github.julian_mateu.kafka;
+package com.github.julian_mateu.kafka.twitter2elastic.producer.twitter;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.parsing.TweetParser;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,8 +22,8 @@ import static org.junit.jupiter.api.Assertions.fail;
 @Slf4j
 public class HoseBirdIntegrationTests {
 
-    private TwitterMessageReader twitterMessageReader;
     private static final TweetParser PARSER = new TweetParser(new ObjectMapper());
+    private TwitterMessageReader twitterMessageReader;
 
     @BeforeEach
     public void setup() {

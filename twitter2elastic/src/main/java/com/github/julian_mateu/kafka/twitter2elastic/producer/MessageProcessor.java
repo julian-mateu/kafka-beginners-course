@@ -1,5 +1,8 @@
-package com.github.julian_mateu.kafka;
+package com.github.julian_mateu.kafka.twitter2elastic.producer;
 
+import com.github.julian_mateu.kafka.twitter2elastic.producer.kafka.Producer;
+import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.parsing.Tweet;
+import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.parsing.TweetParser;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

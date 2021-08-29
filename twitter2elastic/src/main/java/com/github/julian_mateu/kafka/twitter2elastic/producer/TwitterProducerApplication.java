@@ -1,6 +1,11 @@
-package com.github.julian_mateu.kafka;
+package com.github.julian_mateu.kafka.twitter2elastic.producer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.julian_mateu.kafka.twitter2elastic.producer.kafka.Producer;
+import com.github.julian_mateu.kafka.twitter2elastic.producer.kafka.ProducerFactory;
+import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.TwitterMessageReader;
+import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.TwitterMessageReaderFactory;
+import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.parsing.TweetParser;
 import lombok.Cleanup;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -43,10 +48,10 @@ public class TwitterProducerApplication {
      * Runs the Producer application.
      *
      * @throws CancellationException if the computation was cancelled
-     * @throws ExecutionException if the computation threw an
-     * exception
-     * @throws InterruptedException if the current thread was interrupted
-     * while waiting
+     * @throws ExecutionException    if the computation threw an
+     *                               exception
+     * @throws InterruptedException  if the current thread was interrupted
+     *                               while waiting
      */
     public void run() throws ExecutionException, InterruptedException {
         int numberOfMessagesWrittenSoFar = 0;

@@ -1,4 +1,4 @@
-package com.github.julian_mateu.kafka;
+package com.github.julian_mateu.kafka.twitter2elastic.producer.twitter;
 
 import com.twitter.hbc.core.StatsReporter;
 import com.twitter.hbc.core.event.Event;
