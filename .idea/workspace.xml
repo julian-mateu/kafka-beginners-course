@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="Implement ElasticSearchConsumerApplication">
+    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="Add search terms for Twitter.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/ElasticSearchConsumerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/ElasticSearchConsumerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplicationModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplicationModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/TwitterMessageReaderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/TwitterMessageReaderFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/KafkaIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/KafkaIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplicationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/HoseBirdIntegrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/HoseBirdIntegrationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/resources/example.env" beforeDir="false" afterPath="$PROJECT_DIR$/example.env" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,8 +105,9 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/twitter2elastic/src/test/resources" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/twitter2elastic" />
+      <recent name="$PROJECT_DIR$/twitter2elastic/src/test/resources" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="com.github.julian_mateu.kafka.TwitterReaderFactory" />
@@ -138,7 +133,7 @@
       <recent name="com.github.julian_mateu.kafka" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'twitter2elastic.test'">
+  <component name="RunManager" selected="Gradle.DotEnvTest">
     <configuration name="ElasticSearchConsumerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.twitter2elastic.consumer.ElasticSearchConsumerApplication" />
       <module name="twitter2elastic.main" />
@@ -165,12 +160,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConsumerTest.consumeMessages" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ConsumerTest.consumeMessagesAtLeastUpTo" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.twitter2elastic.consumer.ConsumerTest.consumeMessages&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.twitter2elastic.consumer.ConsumerTest.consumeMessagesAtLeastUpTo&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -186,12 +181,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ConsumerTest.consumeMessagesAtLeastUpTo" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="DotEnvTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.twitter2elastic.consumer.ConsumerTest.consumeMessagesAtLeastUpTo&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.secrets.DotEnvTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -232,16 +227,16 @@
       <item itemvalue="Application.ElasticSearchConsumerApplication" />
       <item itemvalue="Application.TwitterProducerApplication" />
       <item itemvalue="Gradle.Tests in 'twitter2elastic.test'" />
-      <item itemvalue="Gradle.ConsumerTest.consumeMessages" />
       <item itemvalue="Gradle.ConsumerTest.consumeMessagesAtLeastUpTo" />
+      <item itemvalue="Gradle.DotEnvTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.DotEnvTest" />
         <item itemvalue="Gradle.Tests in 'twitter2elastic.test'" />
         <item itemvalue="Application.TwitterProducerApplication" />
         <item itemvalue="Application.ElasticSearchConsumerApplication" />
         <item itemvalue="Gradle.ConsumerTest.consumeMessagesAtLeastUpTo" />
-        <item itemvalue="Gradle.ConsumerTest.consumeMessages" />
       </list>
     </recent_temporary>
   </component>
@@ -345,7 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630297755961</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add search terms for Twitter.">
+      <created>1630362428042</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1630362428042</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -372,7 +374,8 @@
     <MESSAGE value="Implement ElasticSearchClient" />
     <MESSAGE value="Add Guice and refactor" />
     <MESSAGE value="Implement ElasticSearchConsumerApplication" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement ElasticSearchConsumerApplication" />
+    <MESSAGE value="Add search terms for Twitter." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add search terms for Twitter." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
