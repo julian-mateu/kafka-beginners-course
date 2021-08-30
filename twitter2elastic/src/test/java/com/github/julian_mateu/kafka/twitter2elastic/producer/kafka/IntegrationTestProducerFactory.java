@@ -1,11 +1,8 @@
 package com.github.julian_mateu.kafka.twitter2elastic.producer.kafka;
 
+import com.github.julian_mateu.kafka.twitter2elastic.commons.KafkaFactoryHelper;
 import lombok.NonNull;
-import lombok.SneakyThrows;
 import org.apache.kafka.clients.admin.AdminClient;
-
-import java.util.Collections;
-import java.util.concurrent.ExecutionException;
 
 public class IntegrationTestProducerFactory extends ProducerFactory {
 
@@ -14,11 +11,8 @@ public class IntegrationTestProducerFactory extends ProducerFactory {
     }
 
     @Override
-    @SneakyThrows({InterruptedException.class, ExecutionException.class})
     protected void createTopicIfNeeded(AdminClient adminClient) {
-        if (adminClient.listTopics().names().get().contains(topicName)) {
-            adminClient.deleteTopics(Collections.singletonList(topicName)).all().get();
-        }
+        KafkaFactoryHelper.deleteTopicIfExists(adminClient, topicName);
         super.createTopicIfNeeded(adminClient);
     }
 }

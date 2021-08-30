@@ -26,7 +26,7 @@ class TwitterProducerApplicationTest {
         application.run();
 
         // Then
-        verify(tweetProducer, times(1)).run(5);
+        verify(tweetProducer, times(1)).run(500);
         verifyNoMoreInteractions(tweetProducer);
     }
 

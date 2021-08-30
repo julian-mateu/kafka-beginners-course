@@ -4,6 +4,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.elasticsearch.ElasticsearchException;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.client.RequestOptions;
@@ -28,8 +29,12 @@ public class ElasticSearchWriter implements AutoCloseable {
         IndexRequest indexRequest = new IndexRequest(indexName);
         indexRequest.id(documentId);
         indexRequest.source(payload, XContentType.JSON);
-        IndexResponse indexResponse = client.index(indexRequest, RequestOptions.DEFAULT);
-        log.debug(indexResponse.toString());
+        try {
+            IndexResponse indexResponse = client.index(indexRequest, RequestOptions.DEFAULT);
+            log.info(indexResponse.toString());
+        } catch (ElasticsearchException exception) {
+            log.error("failed to submit to elastic search", exception);
+        }
     }
 
     @Override

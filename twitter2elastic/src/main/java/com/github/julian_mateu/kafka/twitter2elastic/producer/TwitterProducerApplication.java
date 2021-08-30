@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class TwitterProducerApplication {
 
-    private static final int NUMBER_OF_MESSAGES_TO_WRITE = 5;
+    private static final int NUMBER_OF_MESSAGES_TO_WRITE = 500;
 
     @NonNull
     private final TweetProducer tweetProducer;
