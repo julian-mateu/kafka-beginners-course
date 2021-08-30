@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="Implement ElasticSearchConsumerApplication">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/ElasticSearchConsumerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/ElasticSearchConsumerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplicationModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplicationModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/TwitterMessageReaderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/TwitterMessageReaderFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/KafkaIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/KafkaIntegrationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplicationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/HoseBirdIntegrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/HoseBirdIntegrationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +92,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20210828_0001" />
+    <property name="com.google.cloudcode.ide_session_index" value="20210830_0000" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka" />
@@ -222,11 +229,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.ElasticSearchConsumerApplication" />
+      <item itemvalue="Application.TwitterProducerApplication" />
       <item itemvalue="Gradle.Tests in 'twitter2elastic.test'" />
       <item itemvalue="Gradle.ConsumerTest.consumeMessages" />
       <item itemvalue="Gradle.ConsumerTest.consumeMessagesAtLeastUpTo" />
-      <item itemvalue="Application.ElasticSearchConsumerApplication" />
-      <item itemvalue="Application.TwitterProducerApplication" />
     </list>
     <recent_temporary>
       <list>
@@ -331,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630297674624</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Implement ElasticSearchConsumerApplication">
+      <created>1630297755961</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1630297755961</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -396,7 +410,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/kafka_beginners_course$Tests_in__com_github_julian_mateu_kafka_.ic" NAME="Tests in 'com.github.julian_mateu.kafka' Coverage Results" MODIFIED="1630205753016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/kafka_beginners_course$TweetParserTest.ic" NAME="TweetParserTest Coverage Results" MODIFIED="1630200963205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/kafka_beginners_course$Tests_in__twitter2elastic_test_.ic" NAME="Tests in 'twitter2elastic.test' Coverage Results" MODIFIED="1630297689715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kafka_beginners_course$Tests_in__twitter2elastic_test_.ic" NAME="Tests in 'twitter2elastic.test' Coverage Results" MODIFIED="1630361864123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/kafka_beginners_course$TweetParserTestMock.ic" NAME="TweetParserTestMock Coverage Results" MODIFIED="1630242052268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/kafka_beginners_course$KafkaIntegrationTest_produceAndConsume.ic" NAME="KafkaIntegrationTest.produceAndConsume Coverage Results" MODIFIED="1630293443686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/kafka_beginners_course$TwitterReaderTest.ic" NAME="TwitterReaderTest Coverage Results" MODIFIED="1630200939926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

@@ -16,7 +16,7 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 @RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class ElasticSearchConsumerApplication {
 
-    private static final int NUMBER_OF_MESSAGES_TO_CONSUME = 510;
+    private static final int NUMBER_OF_MESSAGES_TO_CONSUME = 1000;
 
     @NonNull
     private final ElasticSearchWriterFactory elasticSearchWriterFactory;

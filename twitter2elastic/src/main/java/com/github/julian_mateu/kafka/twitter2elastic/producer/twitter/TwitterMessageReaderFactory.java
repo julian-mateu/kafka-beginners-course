@@ -2,9 +2,10 @@ package com.github.julian_mateu.kafka.twitter2elastic.producer.twitter;
 
 import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.secrets.Secrets;
 import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.secrets.SecretsLoader;
+import com.google.common.collect.ImmutableList;
 import com.twitter.hbc.ClientBuilder;
 import com.twitter.hbc.core.Constants;
-import com.twitter.hbc.core.endpoint.StatusesSampleEndpoint;
+import com.twitter.hbc.core.endpoint.StatusesFilterEndpoint;
 import com.twitter.hbc.core.processor.StringDelimitedProcessor;
 import com.twitter.hbc.httpclient.BasicClient;
 import com.twitter.hbc.httpclient.auth.Authentication;
@@ -25,10 +26,14 @@ public class TwitterMessageReaderFactory {
     private final String clientName;
     @NonNull
     private final SecretsLoader secretsLoader;
+    @NonNull
+    private final ImmutableList<String> searchTerms;
 
-    private static BasicClient createClient(LinkedBlockingQueue<String> queue, Secrets secrets, String clientName) {
+    private BasicClient createClient(LinkedBlockingQueue<String> queue, Secrets secrets) {
 
-        StatusesSampleEndpoint endpoint = new StatusesSampleEndpoint();
+        StatusesFilterEndpoint endpoint = new StatusesFilterEndpoint();
+        endpoint.trackTerms(searchTerms);
+
         endpoint.stallWarnings(false);
 
         Authentication auth = new OAuth1(
@@ -59,7 +64,7 @@ public class TwitterMessageReaderFactory {
     public TwitterMessageReader getTwitterMessageReader() {
         LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>(queueCapacity);
         Secrets secrets = secretsLoader.loadSecrets();
-        BasicClient client = TwitterMessageReaderFactory.createClient(queue, secrets, clientName);
+        BasicClient client = createClient(queue, secrets);
         return new TwitterMessageReader(queue, client);
     }
 }

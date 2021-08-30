@@ -35,6 +35,7 @@ public class KafkaIntegrationTest {
     );
     private static final String KEY = "key";
     private static final String MESSAGE = "message";
+    private static final int POLL_DURATION = 2000;
 
     private KafkaConsumer<String, String> consumer;
 
@@ -66,7 +67,7 @@ public class KafkaIntegrationTest {
         // Given
 
         // When
-        ConsumerRecords<String, String> consumerRecords = consumer.poll(Duration.ofMillis(1000));
+        ConsumerRecords<String, String> consumerRecords = consumer.poll(Duration.ofMillis(POLL_DURATION));
 
         // Then
         assertEquals(1, consumerRecords.count());
@@ -79,7 +80,7 @@ public class KafkaIntegrationTest {
         // Given
 
         // When
-        ConsumerRecords<String, String> consumerRecords = consumer.poll(Duration.ofMillis(1000));
+        ConsumerRecords<String, String> consumerRecords = consumer.poll(Duration.ofMillis(POLL_DURATION));
 
         // Then
         assertEquals(0, consumerRecords.count());

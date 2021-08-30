@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.parsing.TweetParser;
 import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.secrets.SecretsLoader;
+import com.google.common.collect.ImmutableList;
 import io.github.cdimascio.dotenv.Dotenv;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
@@ -24,13 +25,16 @@ import static org.junit.jupiter.api.Assertions.fail;
 @Slf4j
 public class HoseBirdIntegrationTests {
 
-    private static final TweetParser PARSER = new TweetParser(new ObjectMapper());
+    private static final String CLIENT_NAME = "integrationTestClient";
+    private static final int QUEUE_CAPACITY = 10000;
+    private static final ImmutableList<String> SEARCH_TERMS = ImmutableList.of("bitcoin");
 
+    private static final TweetParser PARSER = new TweetParser(new ObjectMapper());
     private static final Dotenv DOTENV = Dotenv
             .configure()
             .load();
     private static final TwitterMessageReaderFactory TWITTER_MESSAGE_READER_FACTORY = new TwitterMessageReaderFactory(
-            10000, "integrationTestClient", new SecretsLoader(DOTENV)
+            QUEUE_CAPACITY, CLIENT_NAME, new SecretsLoader(DOTENV), SEARCH_TERMS
     );
 
     private TwitterMessageReader twitterMessageReader;
