@@ -1,20 +1,9 @@
 package com.github.julian_mateu.kafka.twitter2elastic.producer.kafka;
 
-import com.evanlennick.retry4j.CallExecutorBuilder;
-import com.evanlennick.retry4j.Status;
-import com.evanlennick.retry4j.config.RetryConfig;
-import com.evanlennick.retry4j.config.RetryConfigBuilder;
-import org.apache.kafka.clients.admin.AdminClient;
-import org.apache.kafka.clients.admin.AdminClientConfig;
-import org.apache.kafka.clients.admin.KafkaAdminClient;
-import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
-import java.util.Properties;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,29 +18,15 @@ public class KafkaIntegrationTest {
 
     private static final String BOOTSTRAP_SERVERS = "localhost:9092";
     private static final String TOPIC_NAME = "integration_test";
-    private static final RetryConfig RETRY_CONFIG = new RetryConfigBuilder()
-            .exponentialBackoff5Tries5Sec()
-            .build();
+    private static final IntegrationTestProducerFactory PRODUCER_FACTORY = new IntegrationTestProducerFactory(
+            TOPIC_NAME, BOOTSTRAP_SERVERS
+    );
 
     private Producer producer;
 
-    @SuppressWarnings("unchecked")
-    private static Status<Object> retry(Callable<Object> callable) {
-        return new CallExecutorBuilder<>().config(RETRY_CONFIG).build().execute(callable);
-    }
-
     @BeforeEach
-    public void setUp() throws ExecutionException, InterruptedException {
-        AdminClient adminClient = getAdminClient(BOOTSTRAP_SERVERS);
-        if (adminClient.listTopics().names().get().contains(TOPIC_NAME)) {
-            adminClient.deleteTopics(Collections.singletonList(TOPIC_NAME)).all().get();
-        }
-        if (!adminClient.listTopics().names().get().contains(TOPIC_NAME)) {
-            NewTopic newTopic = new NewTopic(TOPIC_NAME, 1, (short) 1);
-            retry(() -> adminClient.createTopics(Collections.singletonList(newTopic)).all().get());
-        }
-
-        producer = ProducerFactory.getProducer(BOOTSTRAP_SERVERS, TOPIC_NAME);
+    public void setUp() {
+        producer = PRODUCER_FACTORY.getProducer();
     }
 
     @Test
@@ -63,11 +38,5 @@ public class KafkaIntegrationTest {
 
         // Then
         assertEquals(0L, metadata.offset());
-    }
-
-    private AdminClient getAdminClient(String bootstrapServers) {
-        Properties properties = new Properties();
-        properties.setProperty(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-        return KafkaAdminClient.create(properties);
     }
 }

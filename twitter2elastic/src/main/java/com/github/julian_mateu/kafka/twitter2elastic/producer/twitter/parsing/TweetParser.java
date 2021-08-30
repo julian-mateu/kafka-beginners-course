@@ -3,6 +3,7 @@ package com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.parsing;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.inject.Inject;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -12,7 +13,7 @@ import java.util.Map;
 /**
  * Helper class to parse a json message into a {@link Tweet} object.
  */
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class TweetParser {
 
     @NonNull

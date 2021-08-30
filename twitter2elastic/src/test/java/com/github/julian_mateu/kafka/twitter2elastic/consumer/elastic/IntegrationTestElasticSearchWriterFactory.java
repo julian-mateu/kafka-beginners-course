@@ -28,11 +28,8 @@ public class IntegrationTestElasticSearchWriterFactory extends ElasticSearchWrit
         if (indexExists(client)) {
             deleteIndex(client);
         }
-
-        if (!indexExists(client)) {
-            createNewIndex(client);
-            refreshIndex(client);
-        }
+        super.createIndex(client);
+        refreshIndex(client);
     }
 
     @SneakyThrows(IOException.class)

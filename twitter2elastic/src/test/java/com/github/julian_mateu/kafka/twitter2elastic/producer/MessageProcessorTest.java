@@ -4,6 +4,7 @@ import com.github.julian_mateu.kafka.twitter2elastic.producer.kafka.Producer;
 import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.parsing.Tweet;
 import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.parsing.TweetParser;
 import com.google.common.collect.ImmutableMap;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -19,9 +20,17 @@ class MessageProcessorTest {
     @Mock
     private TweetParser parser;
 
+    private MessageProcessor messageProcessor;
+
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
+        messageProcessor = new MessageProcessor(producer, parser);
+    }
+
+    @AfterEach
+    public void tearDown() throws Exception {
+        messageProcessor.close();
     }
 
     @Test
@@ -29,7 +38,6 @@ class MessageProcessorTest {
         // Given
         String payload = "some_payload";
         String id = "id";
-        MessageProcessor messageProcessor = new MessageProcessor(producer, parser);
         when(parser.parseMessage(anyString()))
                 .thenReturn(Tweet.of(id, ImmutableMap.of(), payload));
 
@@ -39,5 +47,16 @@ class MessageProcessorTest {
         // Then
         verify(producer, times(1)).sendMessage(eq(id), eq(payload));
         verifyNoMoreInteractions(producer);
+    }
+
+    @Test
+    void close() throws Exception {
+        // Given
+
+        // When
+        messageProcessor.close();
+
+        // Then
+        verify(producer, times(1)).close();
     }
 }

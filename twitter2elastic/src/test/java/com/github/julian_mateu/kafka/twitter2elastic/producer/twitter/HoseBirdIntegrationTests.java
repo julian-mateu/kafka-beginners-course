@@ -3,6 +3,8 @@ package com.github.julian_mateu.kafka.twitter2elastic.producer.twitter;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.parsing.TweetParser;
+import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.secrets.SecretsLoader;
+import io.github.cdimascio.dotenv.Dotenv;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,11 +25,19 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class HoseBirdIntegrationTests {
 
     private static final TweetParser PARSER = new TweetParser(new ObjectMapper());
+
+    private static final Dotenv DOTENV = Dotenv
+            .configure()
+            .load();
+    private static final TwitterMessageReaderFactory TWITTER_MESSAGE_READER_FACTORY = new TwitterMessageReaderFactory(
+            10000, "integrationTestClient", new SecretsLoader(DOTENV)
+    );
+
     private TwitterMessageReader twitterMessageReader;
 
     @BeforeEach
     public void setup() {
-        twitterMessageReader = TwitterMessageReaderFactory.get();
+        twitterMessageReader = TWITTER_MESSAGE_READER_FACTORY.getTwitterMessageReader();
     }
 
     @AfterEach

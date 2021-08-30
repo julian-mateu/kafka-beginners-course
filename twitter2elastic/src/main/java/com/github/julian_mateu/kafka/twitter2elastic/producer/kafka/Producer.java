@@ -1,5 +1,6 @@
 package com.github.julian_mateu.kafka.twitter2elastic.producer.kafka;
 
+import com.google.inject.Inject;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +15,7 @@ import java.util.concurrent.Future;
  * Producer that sends a message and key to a Kafka topic.
  */
 @Slf4j
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class Producer implements AutoCloseable {
 
     @NonNull

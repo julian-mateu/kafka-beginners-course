@@ -4,24 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="Refactor Producer and Consumer applications into packages.">
-      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/ElasticSearchConsumerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/elastic/ElasticClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/elastic/ElasticSearchClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/elastic/ElasticSearchWriter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/elastic/ElasticSearchWriterFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/elastic/ElasticSearchWriterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/elastic/IntegrationTestElasticSearchWriterFactory.java" afterDir="false" />
+    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="Implement ElasticSearchClient">
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplicationModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/ResourceManagerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/kafka/IntegrationTestProducerFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/twitter2elastic/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/elastic/ElasticSearchWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/elastic/ElasticSearchWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/MessageProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/MessageProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TweetProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TweetProducer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/TwitterMessageReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/TwitterMessageReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/kafka/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/kafka/Producer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/kafka/ProducerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/kafka/ProducerFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/TwitterMessageReaderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/TwitterMessageReaderFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/parsing/TweetParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/parsing/TweetParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/ElasticSearchIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/elastic/ElasticSearchIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/elastic/IntegrationTestElasticSearchWriterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/consumer/elastic/IntegrationTestElasticSearchWriterFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/MessageProcessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/MessageProcessorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TweetProducerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TweetProducerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplicationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/kafka/KafkaIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/kafka/KafkaIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/TwitterMessageReaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/TwitterMessageReaderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/parsing/TweetParserTestMock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/HoseBirdIntegrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/twitter/HoseBirdIntegrationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,8 +72,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -85,6 +87,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.inject/guice/5.0.1/2c1282746b8307a049a95e2374c855378c9f29e2/guice-5.0.1-sources.jar!/com/google/inject/binder/LinkedBindingBuilder.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedIndex" value="1" />
@@ -109,6 +114,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.github.julian_mateu.kafka.twitter2elastic.producer" />
       <recent name="com.github.julian_mateu.kafka.twitter2elastic.consumer.elastic" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -136,11 +142,25 @@
       <recent name="com.github.julian_mateu.kafka.twitter2elastic.consumer.elastic" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.github.julian_mateu.kafka.twitter2elastic.producer" />
       <recent name="com.github.julian_mateu.kafka.twitter2elastic.consumer.elastic" />
       <recent name="com.github.julian_mateu.kafka" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'twitter2elastic.test'">
+  <component name="RunManager" selected="Application.TwitterProducerApplication">
+    <configuration name="TwitterProducerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.github.julian_mateu.kafka.twitter2elastic.producer.TwitterProducerApplication" />
+      <module name="twitter2elastic.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.julian_mateu.kafka.twitter2elastic.producer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ElasticSearchClientTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -162,33 +182,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ElasticSearchIntegrationTest.createAndRetrieveNewDocumentUsingSearch" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="MessageProcessorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.twitter2elastic.consumer.elastic.ElasticSearchIntegrationTest.createAndRetrieveNewDocumentUsingSearch&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="ElasticSearchWriterTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.twitter2elastic.consumer.elastic.ElasticSearchWriterTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.twitter2elastic.producer.MessageProcessorTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -225,12 +224,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TweetParserTestMock" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TwitterProducerApplicationTest.getInstance" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/twitter2elastic" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.parsing.TweetParserTestMock&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.github.julian_mateu.kafka.twitter2elastic.producer.TwitterProducerApplicationTest.getInstance&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -248,18 +247,18 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.Tests in 'twitter2elastic.test'" />
-      <item itemvalue="Gradle.ElasticSearchWriterTest" />
-      <item itemvalue="Gradle.TweetParserTestMock" />
-      <item itemvalue="Gradle.ElasticSearchIntegrationTest.createAndRetrieveNewDocumentUsingSearch" />
       <item itemvalue="Gradle.ElasticSearchClientTest" />
+      <item itemvalue="Gradle.MessageProcessorTest" />
+      <item itemvalue="Application.TwitterProducerApplication" />
+      <item itemvalue="Gradle.TwitterProducerApplicationTest.getInstance" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Tests in 'twitter2elastic.test'" />
+        <item itemvalue="Gradle.TwitterProducerApplicationTest.getInstance" />
+        <item itemvalue="Application.TwitterProducerApplication" />
+        <item itemvalue="Gradle.MessageProcessorTest" />
         <item itemvalue="Gradle.ElasticSearchClientTest" />
-        <item itemvalue="Gradle.ElasticSearchIntegrationTest.createAndRetrieveNewDocumentUsingSearch" />
-        <item itemvalue="Gradle.TweetParserTestMock" />
-        <item itemvalue="Gradle.ElasticSearchWriterTest" />
       </list>
     </recent_temporary>
   </component>
@@ -335,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630212245951</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Implement ElasticSearchClient">
+      <created>1630246834612</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1630246834612</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -359,7 +365,8 @@
     <MESSAGE value="Implement TweetParser and tests" />
     <MESSAGE value="Implement TwitterProducerApplication, with tests and docs" />
     <MESSAGE value="Refactor Producer and Consumer applications into packages." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor Producer and Consumer applications into packages." />
+    <MESSAGE value="Implement ElasticSearchClient" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement ElasticSearchClient" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -376,13 +383,18 @@
           <properties class="java.lang.ClassCastException" package="java.lang" />
           <option name="timeStamp" value="11" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TweetProducer.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/kafka_beginners_course$Tests_in__com_github_julian_mateu_kafka_.ic" NAME="Tests in 'com.github.julian_mateu.kafka' Coverage Results" MODIFIED="1630205753016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/kafka_beginners_course$TweetParserTest.ic" NAME="TweetParserTest Coverage Results" MODIFIED="1630200963205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/kafka_beginners_course$Tests_in__twitter2elastic_test_.ic" NAME="Tests in 'twitter2elastic.test' Coverage Results" MODIFIED="1630246347982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/kafka_beginners_course$Tests_in__twitter2elastic_test_.ic" NAME="Tests in 'twitter2elastic.test' Coverage Results" MODIFIED="1630286509371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/kafka_beginners_course$TweetParserTestMock.ic" NAME="TweetParserTestMock Coverage Results" MODIFIED="1630242052268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/kafka_beginners_course$TwitterReaderTest.ic" NAME="TwitterReaderTest Coverage Results" MODIFIED="1630200939926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/kafka_beginners_course$DotEnvTest.ic" NAME="DotEnvTest Coverage Results" MODIFIED="1630201209371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
