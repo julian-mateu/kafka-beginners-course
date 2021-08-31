@@ -30,14 +30,4 @@ class TwitterProducerApplicationTest {
         verify(tweetProducer, times(1)).run(NUMBER_OF_MESSAGES_TO_WRITE);
         verifyNoMoreInteractions(tweetProducer);
     }
-
-    @Test
-    public void getInstance() {
-        // Given
-
-        // When
-        TwitterProducerApplication.getInstance();
-
-        // Then
-    }
 }

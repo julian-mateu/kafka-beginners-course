@@ -3,7 +3,7 @@ package com.github.julian_mateu.kafka.twitter2elastic.consumer;
 import org.junit.jupiter.api.Test;
 
 
-class ElasticSearchConsumerApplicationTest {
+class ElasticSearchConsumerApplicationIntegrationTest {
 
     @Test
     void getInstance() {

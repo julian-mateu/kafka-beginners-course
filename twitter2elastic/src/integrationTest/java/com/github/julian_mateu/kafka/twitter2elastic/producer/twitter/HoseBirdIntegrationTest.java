@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.fail;
  * @see <a href="https://github.com/twitter/hbc">Hosebird Client</a>
  */
 @Slf4j
-public class HoseBirdIntegrationTests {
+public class HoseBirdIntegrationTest {
 
     private static final String CLIENT_NAME = "integrationTestClient";
     private static final int QUEUE_CAPACITY = 10000;
