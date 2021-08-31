@@ -17,6 +17,7 @@ Create a symlink to it into the test resources to be able to run
 integration tests:
 ```bash
 ln -s -f ../../../../.env twitter2elastic/src/test/resources/.env
+ln -s -f ../../../../.env twitter2elastic/src/integrationTest/resources/.env
 ```
 
 ## Launch Kafka and ElasticSearch clusters
