@@ -10,7 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.AbstractMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Matchers.any;
@@ -18,6 +20,13 @@ import static org.mockito.Mockito.*;
 
 class ConsumerTest {
 
+    private static final AbstractMap.SimpleImmutableEntry<String, String> EXPECTED_DOCUMENT =
+            new AbstractMap.SimpleImmutableEntry<>("key", "value");
+    private static final List<Map.Entry<String, String>> EXPECTED_DOCUMENT_BATCH = ImmutableList.of(
+            EXPECTED_DOCUMENT,
+            EXPECTED_DOCUMENT,
+            EXPECTED_DOCUMENT
+    );
     @Mock
     private KafkaConsumer<String, String> kafkaConsumer;
     @Mock
@@ -26,7 +35,6 @@ class ConsumerTest {
     private ConsumerRecords<String, String> mockRecords;
     @Mock
     private ConsumerRecord<String, String> mockRecord;
-
     private Consumer consumer;
 
     @BeforeEach
@@ -50,8 +58,9 @@ class ConsumerTest {
         // Then
         assertEquals(3, processedMessages);
         verify(kafkaConsumer, times(1)).poll(any());
+        verify(kafkaConsumer, times(1)).commitSync();
         verifyNoMoreInteractions(kafkaConsumer);
-        verify(elasticSearchWriter, times(3)).submitDocument("key", "value");
+        verify(elasticSearchWriter, times(1)).submitDocumentBatch(eq(EXPECTED_DOCUMENT_BATCH));
         verifyNoMoreInteractions(elasticSearchWriter);
     }
 
@@ -68,8 +77,9 @@ class ConsumerTest {
         // Then
         assertEquals(6, processedMessages);
         verify(kafkaConsumer, times(2)).poll(any());
+        verify(kafkaConsumer, times(2)).commitSync();
         verifyNoMoreInteractions(kafkaConsumer);
-        verify(elasticSearchWriter, times(6)).submitDocument("key", "value");
+        verify(elasticSearchWriter, times(2)).submitDocumentBatch(eq(EXPECTED_DOCUMENT_BATCH));
         verifyNoMoreInteractions(elasticSearchWriter);
     }
 }

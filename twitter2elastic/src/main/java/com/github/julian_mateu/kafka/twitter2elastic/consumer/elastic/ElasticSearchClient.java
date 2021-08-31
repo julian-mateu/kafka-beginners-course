@@ -2,8 +2,8 @@ package com.github.julian_mateu.kafka.twitter2elastic.consumer.elastic;
 
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.elasticsearch.action.index.IndexRequest;
-import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.action.bulk.BulkRequest;
+import org.elasticsearch.action.bulk.BulkResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
 
@@ -18,8 +18,8 @@ public class ElasticSearchClient implements ElasticClient {
     private final RestHighLevelClient client;
 
     @Override
-    public IndexResponse index(IndexRequest request, RequestOptions requestOptions) throws IOException {
-        return client.index(request, requestOptions);
+    public BulkResponse bulk(BulkRequest request, RequestOptions requestOptions) throws IOException {
+        return client.bulk(request, requestOptions);
     }
 
     @Override

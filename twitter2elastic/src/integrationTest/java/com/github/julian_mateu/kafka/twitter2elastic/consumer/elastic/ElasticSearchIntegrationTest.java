@@ -35,7 +35,6 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @see <a href="https://www.elastic.co/guide/en/elasticsearch/client/java-rest/master/java-rest-high.html">RestHighLevelClient</a>
  */
-// TODO: Automate running docker_compose. For now these require the cluster to be already running locally.
 public class ElasticSearchIntegrationTest {
 
     private static final String INTEGRATION_TEST_INDEX = "integration_test";

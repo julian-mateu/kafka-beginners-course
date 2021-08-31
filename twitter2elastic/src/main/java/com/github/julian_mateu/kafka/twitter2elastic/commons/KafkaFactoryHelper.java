@@ -25,8 +25,11 @@ public abstract class KafkaFactoryHelper {
     }
 
     @SuppressWarnings("unchecked")
-    public static Status<Object> retry(Callable<Object> callable) {
-        return new CallExecutorBuilder<>().config(RETRY_CONFIG).build().execute(callable);
+    public static void retry(Callable<Object> callable) {
+        new CallExecutorBuilder<>()
+                .config(RETRY_CONFIG)
+                .build()
+                .execute(callable);
     }
 
     @SneakyThrows({InterruptedException.class, ExecutionException.class})

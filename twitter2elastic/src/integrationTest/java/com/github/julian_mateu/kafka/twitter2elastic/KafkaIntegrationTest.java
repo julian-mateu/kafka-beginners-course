@@ -21,7 +21,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * @see <a href="https://docs.confluent.io/home/overview.html">Kafka docs</a>
  */
-// TODO: Automate running docker_compose. For now these require the cluster to be already running locally.
 public class KafkaIntegrationTest {
 
     private static final String BOOTSTRAP_SERVERS = "localhost:9092";
