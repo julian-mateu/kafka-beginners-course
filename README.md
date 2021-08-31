@@ -1,5 +1,7 @@
 # Kafka Beginners Course
 
+![ci-badge](https://github.com/julian-mateu/kafka-beginners-course/actions/workflows/java-ci.yml/badge.svg?branch=main)
+
 Code and resources from the [Learn Apache Kafka for Beginners v2](https://www.udemy.com/course/apache-kafka/)
 Udemy course.
 
