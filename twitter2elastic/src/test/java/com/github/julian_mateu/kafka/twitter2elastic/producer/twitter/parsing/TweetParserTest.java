@@ -1,5 +1,6 @@
 package com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.parsing;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
 import org.junit.jupiter.api.BeforeEach;
@@ -79,5 +80,17 @@ class TweetParserTest {
                 payload
         );
         assertEquals(expected, result);
+    }
+
+    @Test
+    public void throwsOnInvalidJson() {
+        // Given
+        String payload = "{";
+
+        // When - Then
+        assertThrows(
+                JsonProcessingException.class,
+                () -> parser.parseMessage(payload)
+        );
     }
 }

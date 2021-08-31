@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;
 
+import java.util.Optional;
 import java.util.concurrent.Future;
 
 /**
@@ -36,8 +37,14 @@ public class MessageProcessor implements AutoCloseable {
      * @param message message to parse
      * @return A {@link Future} of a {@link RecordMetadata} instance
      */
-    public Future<RecordMetadata> processMessage(@NonNull String message) {
-        Tweet tweet = parser.parseMessage(message);
-        return producer.sendMessage(tweet.getId(), tweet.getPayloadString());
+    public Optional<Future<RecordMetadata>> processMessage(@NonNull String message) {
+        try {
+            Tweet tweet = parser.parseMessage(message);
+            Future<RecordMetadata> recordMetadataFuture = producer.sendMessage(tweet.getId(), tweet.getPayloadString());
+            return Optional.of(recordMetadataFuture);
+        } catch (IllegalArgumentException exception) {
+            log.error("Error while processing message " + message, exception);
+            return Optional.empty();
+        }
     }
 }

@@ -1,15 +1,21 @@
 package com.github.julian_mateu.kafka.twitter2elastic.producer;
 
 import com.github.julian_mateu.kafka.twitter2elastic.producer.kafka.Producer;
+import com.github.julian_mateu.kafka.twitter2elastic.producer.testutils.RecordMetadataFutureMock;
 import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.parsing.Tweet;
 import com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.parsing.TweetParser;
 import com.google.common.collect.ImmutableMap;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Optional;
+import java.util.concurrent.Future;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
@@ -19,12 +25,15 @@ class MessageProcessorTest {
     private Producer producer;
     @Mock
     private TweetParser parser;
+    @Mock
+    private RecordMetadataFutureMock recordMetadataFutureMock;
 
     private MessageProcessor messageProcessor;
 
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
+        when(producer.sendMessage(anyString(), anyString())).thenReturn(recordMetadataFutureMock);
         messageProcessor = new MessageProcessor(producer, parser);
     }
 
@@ -42,10 +51,27 @@ class MessageProcessorTest {
                 .thenReturn(Tweet.of(id, ImmutableMap.of(), payload));
 
         // When
-        messageProcessor.processMessage(payload);
+        Optional<Future<RecordMetadata>> result = messageProcessor.processMessage(payload);
 
         // Then
+        assertEquals(Optional.of(recordMetadataFutureMock), result);
         verify(producer, times(1)).sendMessage(eq(id), eq(payload));
+        verifyNoMoreInteractions(producer);
+    }
+
+    @Test
+    public void processMessageReturnsEmptyOptionalOnParsingError() {
+        // Given
+        String payload = "some_payload";
+        String id = "id";
+        when(parser.parseMessage(anyString()))
+                .thenThrow(new IllegalArgumentException());
+
+        // When
+        Optional<Future<RecordMetadata>> result = messageProcessor.processMessage(payload);
+
+        // Then
+        assertEquals(Optional.empty(), result);
         verifyNoMoreInteractions(producer);
     }
 

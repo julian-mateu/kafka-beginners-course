@@ -1,5 +1,6 @@
 package com.github.julian_mateu.kafka.twitter2elastic.consumer.elastic;
 
+import org.elasticsearch.ElasticsearchException;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.junit.jupiter.api.BeforeEach;
@@ -57,6 +58,18 @@ class ElasticSearchWriterTest {
 
         // Then
         assertEquals("someMessage", thrown.getMessage());
+    }
+
+    @Test
+    void submitDocumentIgnoresElasticsearchException() throws IOException {
+        // Given
+        when(client.index(any(), any()))
+                .thenThrow(new ElasticsearchException("someMessage"));
+
+        // When
+        writer.submitDocument("id", "payload");
+
+        // Then
     }
 
     @Test

@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="Update README.md instructions">
+    <list default="true" id="5e162b75-d410-4b0a-90c7-c3f5e7f0e50a" name="Changes" comment="Change producer config to enable higher throughput">
+      <change afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/testutils/RecordMetadataFutureMock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/kafka/ProducerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/kafka/ProducerFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/MessageProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/MessageProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TweetProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TweetProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplicationModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/main/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TwitterProducerApplicationModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/MessageProcessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/MessageProcessorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TweetProducerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/TweetProducerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/kafka/ProducerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/twitter2elastic/src/test/java/com/github/julian_mateu/kafka/twitter2elastic/producer/kafka/ProducerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +61,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -119,6 +125,7 @@
       <recent name="com.github.julian_mateu.kafka.ElasticSearchIntegrationTest" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="com.github.julian_mateu.kafka.twitter2elastic.producer" />
       <recent name="com.github.julian_mateu.kafka.twitter2elastic.consumer.elastic" />
       <recent name="com.github.julian_mateu.kafka" />
     </key>
@@ -152,7 +159,7 @@
       <module name="twitter2elastic.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.github.julian_mateu.kafka.twitter2elastic.producer.*" />
+          <option name="PATTERN" value="com.github.julian_mateu.kafka.twitter2elastic.producer.testutils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -368,7 +375,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630363503274</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Change producer config to enable higher throughput">
+      <created>1630366668755</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1630366668755</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -398,7 +412,8 @@
     <MESSAGE value="Add search terms for Twitter." />
     <MESSAGE value="Move example.env" />
     <MESSAGE value="Update README.md instructions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update README.md instructions" />
+    <MESSAGE value="Change producer config to enable higher throughput" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change producer config to enable higher throughput" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

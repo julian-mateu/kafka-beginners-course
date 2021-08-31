@@ -36,10 +36,10 @@ public class TweetProducer {
     static Optional<Future<RecordMetadata>> readAndProduce(TwitterMessageReader reader,
                                                            MessageProcessor messageProcessor) {
         return reader.readMessage()
-                .map(sendToProcessor(messageProcessor));
+                .flatMap(sendToProcessor(messageProcessor));
     }
 
-    static Function<String, Future<RecordMetadata>> sendToProcessor(MessageProcessor messageProcessor) {
+    static Function<String, Optional<Future<RecordMetadata>>> sendToProcessor(MessageProcessor messageProcessor) {
         return (content) -> {
             log.info(content);
             return messageProcessor.processMessage(content);
