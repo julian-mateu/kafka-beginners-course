@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'io.freefair.lombok' version '6.1.0'
     id 'idea'
+    id 'com.avast.gradle.docker-compose' version '0.14.9'
 }
 
 group 'com.github.julian-mateu'
@@ -62,3 +63,4 @@ task integrationTest(type: Test) {
 }
 
 check.dependsOn integrationTest
+dockerCompose.isRequiredBy integrationTest as Task

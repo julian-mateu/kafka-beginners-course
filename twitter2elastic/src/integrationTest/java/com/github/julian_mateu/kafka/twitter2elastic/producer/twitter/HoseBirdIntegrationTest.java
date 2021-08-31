@@ -32,6 +32,7 @@ public class HoseBirdIntegrationTest {
     private static final TweetParser PARSER = new TweetParser(new ObjectMapper());
     private static final Dotenv DOTENV = Dotenv
             .configure()
+            .ignoreIfMissing()
             .load();
     private static final TwitterMessageReaderFactory TWITTER_MESSAGE_READER_FACTORY = new TwitterMessageReaderFactory(
             QUEUE_CAPACITY, CLIENT_NAME, new SecretsLoader(DOTENV), SEARCH_TERMS

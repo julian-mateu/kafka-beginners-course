@@ -21,6 +21,7 @@ public class TwitterProducerApplicationModule implements Module {
     public void configure(Binder binder) {
         Dotenv dotenv = Dotenv
                 .configure()
+                .ignoreIfMissing()
                 .load();
         binder.bind(Dotenv.class).toInstance(dotenv);
 

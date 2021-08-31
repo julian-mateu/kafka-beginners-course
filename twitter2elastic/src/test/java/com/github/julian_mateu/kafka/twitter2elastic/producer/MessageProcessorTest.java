@@ -63,7 +63,6 @@ class MessageProcessorTest {
     public void processMessageReturnsEmptyOptionalOnParsingError() {
         // Given
         String payload = "some_payload";
-        String id = "id";
         when(parser.parseMessage(anyString()))
                 .thenThrow(new IllegalArgumentException());
 

@@ -1,5 +1,6 @@
 package com.github.julian_mateu.kafka.twitter2elastic.producer.twitter.secrets;
 
+import lombok.NonNull;
 import lombok.Value;
 
 /**
@@ -7,8 +8,8 @@ import lombok.Value;
  */
 @Value(staticConstructor = "of")
 public class Secrets {
-    String consumerKey;
-    String consumerSecret;
-    String token;
-    String secret;
+    @NonNull String consumerKey;
+    @NonNull String consumerSecret;
+    @NonNull String token;
+    @NonNull String secret;
 }
